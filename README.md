@@ -37,7 +37,7 @@ Utilização de Bind Mount para vincular um diretório do sistema operacional ho
 
 ### Comandos Utilizados:
 mkdir -p dev-site
-echo "<h1>Atividade de Persistencia - Eduardo Dias</h1>" > dev-site/index.html
+echo "Atividade de Persistencia - Eduardo Dias" > dev-site/index.html
 sudo docker run -d --name servidor-dev -v $(pwd)/dev-site:/usr/share/nginx/html -p 8080:80 nginx:alpine
 curl http://localhost:8080
 
