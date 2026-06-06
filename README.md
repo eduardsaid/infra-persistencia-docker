@@ -10,6 +10,7 @@ Neste cenário, foi criado um volume nomeado para garantir o ciclo de vida dos d
 sudo docker volume create mysql-prod-data
 
 sudo docker run -d --name mysql-container -v mysql-prod-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=senha_secreta mysql:8.0
+
 sudo docker exec -it mysql-container mysql -u root -p
 
 ### Explicação Técnica:
@@ -25,8 +26,11 @@ sudo docker run --rm -v mysql-prod-data:/volume -v $(pwd)/backups:/backup ubuntu
 
 ### Comandos Utilizados (Restauração):
 sudo docker rm -f mysql-container-novo
+
 sudo docker volume rm mysql-prod-data
+
 sudo docker volume create mysql-prod-data
+
 sudo docker run --rm -v mysql-prod-data:/volume -v $(pwd)/backups:/backup ubuntu tar xvf /backup/backup-mysql.tar.gz -C /volume
 
 ### Validação:
@@ -38,8 +42,11 @@ Utilização de Bind Mount para vincular um diretório do sistema operacional ho
 
 ### Comandos Utilizados:
 mkdir -p dev-site
+
 echo "Atividade de Persistencia - Eduardo Dias" > dev-site/index.html
+
 sudo docker run -d --name servidor-dev -v $(pwd)/dev-site:/usr/share/nginx/html -p 8080:80 nginx:alpine
+
 curl http://localhost:8080
 
 ### Diferença Técnica (Host vs Container):
@@ -51,7 +58,9 @@ Implementação de arquitetura baseada em compartilhamento de volumes, onde múl
 
 ### Comandos Utilizados:
 sudo docker volume create volume-compartilhado
+
 sudo docker run -d --name container-produtor -v volume-compartilhado:/app/dados alpine sh -c 'while true; do echo "Log gerado por Eduardo Dias em $(date)" >> /app/dados/output.log; sleep 5; done'
+
 sudo docker run --rm -v volume-compartilhado:/dados alpine tail -n 5 /dados/output.log
 
 ### Análise Técnica:
@@ -63,7 +72,9 @@ Criação de rotina automatizada em Shell Script para empacotamento cíclico de 
 
 ### Execução do Script (scripts/backup.sh):
 chmod +x scripts/backup.sh
+
 ./scripts/backup.sh
+
 ls -lh backups/
 
 ### Resultado Esperado:
