@@ -8,6 +8,7 @@ Neste cenário, foi criado um volume nomeado para garantir o ciclo de vida dos d
 
 ### Comandos Utilizados:
 sudo docker volume create mysql-prod-data
+
 sudo docker run -d --name mysql-container -v mysql-prod-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=senha_secreta mysql:8.0
 sudo docker exec -it mysql-container mysql -u root -p
 
