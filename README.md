@@ -1,5 +1,7 @@
 # Infraestrutura de Persistência com Docker
 
+Tudo foi feito com o SSH pelo meu Windows 11 ""ssh eduardo248648@192.168.15.54""
+
 ## CENÁRIO 1 — Persistência de Dados com MySQL e Named Volume
 
 Neste cenário, foi criado um volume nomeado para garantir o ciclo de vida dos dados de forma independente do contêiner do banco de dados MySQL 8.0.
