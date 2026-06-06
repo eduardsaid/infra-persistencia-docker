@@ -1,6 +1,6 @@
 # Infraestrutura de Persistência com Docker
 
-Tudo foi feito com o SSH pelo meu Windows 11 ""ssh eduardo248648@192.168.15.54""
+Tudo foi feito com o SSH pelo meu Windows 11 ""ssh eduardo248648@192.168.15.54"" na VM com Ubuntu Server
 
 ## CENÁRIO 1 — Persistência de Dados com MySQL e Named Volume
 
